@@ -1,7 +1,12 @@
 from random import choice
 
-# Created a list 'l' with items R for Rocks, P for Paper and S for Scissors
-l=['R','P','S']
+#Create a dictionary 'D' with keys and values as below
+D={'R':'Rock','P':'Paper','S':'Scissors'}
+
+# Created a list 'L' of the keys
+L=[]
+for keys in D:
+    L.append(keys)
 
 # Declared counters to check conditions
 player_score=0
@@ -18,17 +23,17 @@ while is_running:
 
     # Begin another loop to cater for the three rounds of the game
     while round_<=2:
-        CPU=choice(l)
+        CPU=choice(L)
         player=input(('enter an option from list')).upper()
 
         # Created loop to ensure user (player) input is correct
-        while player not in l:
+        while player not in L:
             print('Invalid input. Try again')
             player=input(('enter an option from list')).upper()
 
         # Display player input and computer choice to compare
         # and determine winner of the round
-        print('Player:',player,'Computer:',CPU)
+        print('Player:',D[player],'-- Computer:',D[CPU])
 
         # Test conditions to determine round's winner
         if player==CPU:
